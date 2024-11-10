@@ -1,0 +1,187 @@
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('./font/TTLakes-Light.eot');
+  src: url('./font/TTLakes-Light.eot?#iefix') format('embedded-opentype'),
+  url('./font/TTLakes-Light.woff') format('woff'),
+  url('./font/TTLakes-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('./font/TTLakes-Medium.eot');
+  src: url('./font/TTLakes-Medium.eot?#iefix') format('embedded-opentype'),
+  url('./font/TTLakes-Medium.woff') format('woff'),
+  url('./font/TTLakes-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--main-color-tx);
+  font-family: 'TT Lakes', sans-serif;
+}
+button {
+  border: none;
+  background-color: white;
+  font-weight: 500;
+}
+
+header {
+  padding: 20px 30px;
+}
+h2 {
+  font-weight: 100;
+  color: #7E7E82;
+  text-transform: uppercase;
+}
+
+.main__content {
+  padding: 30px;
+  background-color: #F8F8F8;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  gap: 10px;
+}
+.brand__card {
+  width: 240px;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #EAEAEA;
+}
+.brand__card:nth-child(n+9) {
+  display: none;
+}
+.brand__icon--acer {
+  background: url(./img/acer.png) no-repeat center;
+  width: 94px;
+  height: 24px;
+  display: block;
+}
+.brand__icon--apple {
+  background: url(./img/apple.png) no-repeat center;
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+.brand__icon--bosch {
+  background: url(./img/bosch.png) no-repeat center;
+  width: 128px;
+  height: 29px;
+  display: block;
+}
+.brand__icon--hp {
+  background: url(./img/hp.png) no-repeat center;
+  width: 52px;
+  height: 52px;
+  display: block;
+}
+.brand__icon--lenovo {
+  background: url(./img/lenovo.png) no-repeat center;
+  width: 108px;
+  height: 32px;
+  display: block;
+}
+.brand__icon--samsung {
+  background: url(./img/samsung.png) no-repeat center;
+  width: 116px;
+  height: 39px;
+  display: block;
+}
+.brand__icon--sony {
+  background: url(./img/sony.png) no-repeat center;
+  width: 120px;
+  height: 39px;
+  display: block;
+}
+.brand__icon--viewsonic {
+  background: url(./img/viewsonic.png) no-repeat center;
+  width: 128px;
+  height: 21px;
+  display: block;
+}
+.brand__button {
+  background: url(./img/go.png) no-repeat;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.brands__btn {
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #F8F8F8;
+  font-weight: 500;
+  
+}
+.brands__btn--open::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(./img/expand.png);
+  text-align: center;
+}
+.brands__btn-close {
+  display: none;
+}
+.brands__btn-close::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(./img/expand.png);
+  text-align: center;
+  transform: rotate(180deg);
+}
+.swiper {
+  display: none;
+}
+
+@media (min-width: 568px) and (max-width: 975px) {
+  .brands {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    gap: 10px;
+  }
+  .brand__card:nth-child(n+7) {
+    display: none;
+  }
+}
+
+
+@media (max-width: 567px) {
+  .brands,
+  .brands__btn {
+    display: none;
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .swiper {
+    display: block;
+    height: 120px;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    line-height: 20px;
+    font-size: 12px;
+    background-color: #B5B6BC;
+  }
+  .swiper-slide {
+    width: 240px;
+  }
+}
