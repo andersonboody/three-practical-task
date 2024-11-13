@@ -32,6 +32,8 @@ button {
 
 header {
   padding: 20px 30px;
+  border-top: 1px solid #D9FFF5;
+  background: linear-gradient(to right, #F8F8F8, #FFFFFF);
 }
 h2 {
   font-weight: 100;
@@ -46,97 +48,51 @@ h2 {
 
 .brands {
   display: grid;
-  grid-template-columns: repeat(4, 240px);
+  grid-template-columns: repeat(4, minmax(200px, 240px));
   gap: 10px;
 }
 .brand__card {
-  width: 240px;
   height: 72px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
   border-radius: 10px;
   background-color: white;
   border: 1px solid #EAEAEA;
 }
-.brand__card:nth-child(n+9) {
-  display: none;
+.brand__icon {
+  width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.brand__icon--acer {
-  background: url(./img/acer.png) no-repeat center;
-  width: 94px;
-  height: 24px;
-  display: block;
-}
-.brand__icon--apple {
-  background: url(./img/apple.png) no-repeat center;
-  width: 44px;
-  height: 44px;
-  display: block;
-}
-.brand__icon--bosch {
-  background: url(./img/bosch.png) no-repeat center;
-  width: 128px;
-  height: 29px;
-  display: block;
-}
-.brand__icon--hp {
-  background: url(./img/hp.png) no-repeat center;
-  width: 52px;
-  height: 52px;
-  display: block;
-}
-.brand__icon--lenovo {
-  background: url(./img/lenovo.png) no-repeat center;
-  width: 108px;
-  height: 32px;
-  display: block;
-}
-.brand__icon--samsung {
-  background: url(./img/samsung.png) no-repeat center;
-  width: 116px;
-  height: 39px;
-  display: block;
-}
-.brand__icon--sony {
-  background: url(./img/sony.png) no-repeat center;
-  width: 120px;
-  height: 39px;
-  display: block;
-}
-.brand__icon--viewsonic {
-  background: url(./img/viewsonic.png) no-repeat center;
-  width: 128px;
-  height: 21px;
-  display: block;
-}
-.brand__button {
+.brand__icon::after {
   background: url(./img/go.png) no-repeat;
   min-width: 40px;
   min-height: 40px;
+  content: '';
 }
-
-.brands__btn {
-  padding-top: 30px;
+.brand__card:nth-child(n+9) {
+  display: none;
+}
+.button {
   display: flex;
   align-items: center;
   background-color: #F8F8F8;
   font-weight: 500;
-  
 }
-.brands__btn--open::before {
+.brands__button {
+  padding-top: 30px;
+}
+.button--open::before {
   content: "";
   display: inline-block;
   width: 24px;
   height: 24px;
   background: url(./img/expand.png);
   text-align: center;
+  transform: rotate(0deg);
 }
-.brands__btn-close {
-  display: none;
-}
-.brands__btn-close::before {
+.button--close::before {
   content: "";
   display: inline-block;
   width: 24px;
@@ -149,10 +105,13 @@ h2 {
   display: none;
 }
 
-@media (min-width: 568px) and (max-width: 975px) {
+@media (min-width: 649px) and (max-width: 1024px) {
+  h2 {
+    font-size: 20px;
+  }
   .brands {
     display: grid;
-    grid-template-columns: repeat(3, 240px);
+    grid-template-columns: repeat(3, minmax(195px, 240px));
     gap: 10px;
   }
   .brand__card:nth-child(n+7) {
@@ -160,11 +119,24 @@ h2 {
   }
 }
 
-
-@media (max-width: 567px) {
-  .brands,
-  .brands__btn {
+@media (min-width: 569px) and (max-width: 648px) {
+  .brands {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(195px, 240px));
+    gap: 10px;
+  }
+  .brand__card:nth-child(n+5) {
     display: none;
+  }
+}
+
+@media (max-width: 568px) {
+  .brands,
+  .brands__button {
+    display: none;
+  }
+  .main__content {
+    padding: 30px 0px 0px 0px;
   }
   h2 {
     font-size: 16px;
@@ -173,6 +145,27 @@ h2 {
   .swiper {
     display: block;
     height: 120px;
+    position: relative;
+  }
+  .swiper::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(to left, transparent, #F8F8F8);
+    width: 24px;
+    height: 74px;
+    z-index: 10;
+  }
+  .swiper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to right, transparent, #F8F8F8);
+    width: 24px;
+    height: 74px;
+    z-index: 10;
   }
   .swiper-pagination-bullet {
     width: 10px;
